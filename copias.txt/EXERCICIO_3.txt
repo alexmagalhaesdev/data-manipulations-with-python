@@ -1,0 +1,55 @@
+########################
+# Inicio do seu codigo #
+########################
+
+
+#Leitura do meu arquivo CSV
+googleplaystore_df = pd.read_csv("googleplaystore.csv")
+
+
+#1 - Faça um gráfico de barras contendo os top 5 apps por número de instalação
+#plt.rcParams.update({'font.size':12})
+#filter = googleplaystore_df['Installs'].str.replace(',','.', regex=True).str.replace('+','', regex=True)
+#filter = pd.to_numeric(filter,errors='coerce')
+#top5_apps = filter.sort_values(ascending = False).head(5)
+#nomes = googleplaystore_df.sort_values(by="Installs", ascending = False).head(6)
+#pos = np.arange(5)
+#plt.figure(figsize=(15, 5))
+#plt.bar(pos, top5_apps)
+#plt.title('Top 5 apps por número de instalação') 
+#plt.xlabel('Aplicativo')
+#plt.ylabel('N de Instalações (Milhões)')
+#plt.show()
+
+
+
+#2 - Faça um gráfico de pizza (pie chart) mostrando as categorias
+#plt.figure(figsize=(10,15))
+#plt.pie(x=googleplaystore_df['Category'].value_counts(), labels=googleplaystore_df['Category'].unique())
+#plt.show()
+
+#3 -  Mostre qual o app mais caro existente no dataset
+#filter = googleplaystore_df["Type"]=="Paid"
+#app_caro = googleplaystore_df['Price'].str.replace('$','', regex=True)
+#app_caro = app_caro[filter].astype(float)
+#app_caro = app_caro[filter].sort_values(ascending = False).head(1)
+#display(app_caro)
+
+
+#4 - Mostre quantos apps são classificados como Mature 17+
+#app_mature = googleplaystore_df['Content Rating'] == 'Mature 17+'
+#app_mature = googleplaystore_df[app_mature]
+#app_mature = app_mature['Content Rating'].value_counts()
+#display(app_mature)
+
+
+#5- Mostre o top 10 apps por número de reviews
+#filter = googleplaystore_df['Reviews']
+#filter = pd.to_numeric(filter, errors='coerce')
+#top10_reviews = filter.sort_values(ascending = False).head(10)
+#display(top10_reviews)
+
+
+########################
+#   Fim do seu codigo  #
+########################

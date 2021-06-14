@@ -1,0 +1,21 @@
+########################
+# Inicio do seu codigo #
+########################
+
+
+#1 - Intrução - exercicio1
+#SELECT Actor, max(NumberofMovies) FROM actors;
+
+#2 - Intrução - exercicio2
+#SELECT AVG(NumberofMovies) FROM actors;
+
+#3 - Intrução - exercicio3
+#SELECT Actor, max(AverageperMovie) FROM actors;
+
+#4 - Intrução - exercicio4
+#SELECT "#1Movie" as Filme, sum(Gross) as Frequencia FROM actors GROUP BY "#1Movie" ORDER BY Frequencia DESC limit 6;
+
+
+########################
+#   Fim do seu codigo  #
+########################

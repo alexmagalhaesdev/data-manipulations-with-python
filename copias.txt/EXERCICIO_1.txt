@@ -1,0 +1,23 @@
+########################
+# Inicio do seu codigo #
+########################
+
+#Leitura do meu arquivo CSV
+actors_df = pd.read_csv("actors.csv")
+
+#1 - O ator/atriz com maior número de filmes e o respectivo número de filmes.
+#display(actors_df[(actors_df['Number of Movies'] == actors_df['Number of Movies'].describe().max())][['Actor','Number of Movies']])
+
+#2 - A média do número de filmes
+#display(actors_df['Number of Movies'].mean())
+
+#3 - O ator/atriz com a maior média por filme
+#display(actors_df[(actors_df['Average per Movie'] == actors_df['Average per Movie'].describe().max())][['Actor','Average per Movie']])
+
+#4 - O nome do(s) filme(s) mais frequente(s) e sua respectiva frequência.
+#display(actors_df['#1 Movie'].value_counts().head(6))
+
+ 
+########################
+#   Fim do seu codigo  #
+########################

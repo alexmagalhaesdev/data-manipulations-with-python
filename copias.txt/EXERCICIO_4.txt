@@ -1,0 +1,89 @@
+########################
+# Inicio do seu codigo #
+########################
+
+
+#leitura dos dois datsets
+fifa19_info_df = pd.read_csv('fifa19_info.csv')
+fifa19_stats_df = pd.read_csv('fifa19_stats.csv')
+
+#União dos dois dataframes
+fifa19_full_df = pd.merge(fifa19_info_df, fifa19_stats_df,how='left')
+
+
+#1 -  media de agilidade dos jogadores 
+#display(fifa19_full_df.loc[(fifa19_full_df['Club']=='FC Barcelona') | (fifa19_full_df['Club']=='Real Madrid')]['Agility'].mean())
+
+
+#2 - Faça um gráfico de barras com os top 10 clubes de acordo com a soma de valor seus jogadores.
+#fifa19_full_df['Value'] = fifa19_full_df['Value'].str.replace('€','', regex=True).str.replace('M','000000', regex=True).str.replace('K','', regex=True).str.replace('.','', regex=True).str.replace(',','', regex=True)
+#fifa19_full_df['Value'] = pd.to_numeric(fifa19_full_df['Value'], errors='coerce')
+#display(fifa19_full_df[['Club','Value']].sort_values(by="Value", ascending=False).head(10))
+#fifa19_full_df['Value'] = fifa19_full_df['Value'].str.replace('€','', regex=True).str.replace('M','000000', regex=True).str.replace('K','000', regex=True).str.replace('.','', regex=True).str.replace(',','', regex=True)
+# fifa19_full_df['Value'] = pd.to_numeric(fifa19_full_df['Value'], errors='coerce')
+#account = fifa19_full_df[['Club','Value']].value_counts()
+#account.sort_values(by="Value", ascending=False)
+#display(value_account.sort_values(by="Value", ascending=False).head(10))
+
+
+#3 - Mostre os top 5 países que mais possuem jogadores no conjunto de dados.
+#display(fifa19_full_df['Nationality'].value_counts().head(5))
+
+
+#4 - Mostre a foto (virtual e real) dos top 5 jogadores de acordo com a habilidade absoluta (Overall)
+#display(fifa19_full_df[['Name', 'Photo', 'Flag', 'Overall' ]].sort_values(by="Overall", ascending=False).head(5))
+
+
+#5 - Mostre qual é o jogador mais velho e mais novo.
+#display(fifa19_full_df[(fifa19_full_df['Age'] == fifa19_full_df['Age'].max()) | (fifa19_full_df['Age'] == fifa19_full_df['Age'].min())][['Age','Name']])
+
+
+#6 - Faça um gráfico de dispersão que contém o top 10 jogadores de acordo com a habilidade absoluta
+#dados = fifa19_full_df[['Name', 'Penalties','Overall']].sort_values(by="Overall", ascending=False).head(10)
+#plt.scatter(dados['Penalties'], dados['Overall'])
+#display(dados[['Name','Overall','Penalties']])
+#plt.show()
+
+
+#7 - Mostre qual o clube que contém, em média, os melhores batedores de pênalti.
+#mean_pen_club = fifa19_full_df[['Club','Penalties']].groupby('Club').mean()
+#display(mean_pen_club.sort_values(by="Penalties", ascending = False).head(1))
+
+#8 - Mostre qual o clube que contém, em média, os jogadores mais caros
+#fifa19_full_df['Value'] = fifa19_full_df['Value'].str.replace('€','', regex=True).str.replace('M','000000', regex=True).str.replace('K','000', regex=True).str.replace('.','', regex=True).str.replace(',','', regex=True)
+#fifa19_full_df['Value'] = pd.to_numeric(fifa19_full_df['Value'], errors='coerce')
+#mean_value_club = fifa19_full_df[['Club','Value']].groupby('Club').mean()
+#display(mean_value_club.sort_values(by="Value", ascending=False).head(1))
+
+
+#9 - Faça um gráfico de radar dos Jogadores 
+#atributos = ['Balance','Stamina','ShotPower','Marking','Dribbling','SprintSpeed','Strength','SlidingTackle','GKReflexes']
+#atributos = [*atributos, atributos[0]]
+
+#jogador_1 = fifa19_full_df[(fifa19_full_df['Name'] == 'L. Messi')]
+#jogador_2 = fifa19_full_df[(fifa19_full_df['Name'] == 'Sergio Ramos')]
+#jogador_3 = fifa19_full_df[(fifa19_full_df['Name'] == 'De Gea')]
+
+#jogador_1 = [jogador_1['Balance'],jogador_1['Stamina'],jogador_1['ShotPower'],jogador_1['Marking'],jogador_1['Dribbling'],jogador_1['SprintSpeed'],jogador_1['Strength'],jogador_1['SlidingTackle'],jogador_1['GKReflexes']]
+#jogador_2 = [jogador_2['Balance'],jogador_2['Stamina'],jogador_2['ShotPower'],jogador_2['Marking'],jogador_2['Dribbling'],jogador_2['SprintSpeed'],jogador_2['Strength'],jogador_2['SlidingTackle'],jogador_2['GKReflexes']]
+#jogador_3 = [jogador_3['Balance'],jogador_3['Stamina'],jogador_3['ShotPower'],jogador_3['Marking'],jogador_3['Dribbling'],jogador_3['SprintSpeed'],jogador_3['Strength'],jogador_3['SlidingTackle'],jogador_3['GKReflexes']]
+
+#jogador_1 = [*jogador_1, jogador_1[0]]
+#jogador_2 = [*jogador_2, jogador_2[0]]
+#jogador_3 = [*jogador_3, jogador_3[0]]
+
+#label_loc = np.linspace(start=0, stop=2 * np.pi, num=len(jogador_1))
+
+#plt.figure(figsize=(8, 8))
+#plt.subplot(polar=True)
+#plt.plot(label_loc, jogador_1, label='L. Messi')
+#plt.plot(label_loc, jogador_2, label='Sergio Ramos')
+#plt.plot(label_loc, jogador_3, label='De Gea')
+#plt.title('Atributos dos Jogadores do Fifa 19', size=20, y=1.05)
+#lines, labels = plt.thetagrids(np.degrees(label_loc), labels=atributos)
+#plt.legend()
+#plt.show()
+
+########################
+#   Fim do seu codigo  #
+########################
